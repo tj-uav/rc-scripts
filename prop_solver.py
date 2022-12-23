@@ -4,7 +4,7 @@ import math
 static_thrust = 2  # newtons of desired static thrust
 cruising_speed = 30  # mph desired cruising speed
 motor_kv = 2300
-input_volts = 4*3*.3  # motors are optimally efficient at about 30% of their max rpm, so set it to that if u want peak efficiency
+input_volts = 4.2*4*.3  # motors are optimally efficient at about 30% of their max rpm, so set it to that if u want peak efficiency
 blades = 2  # works for 2,3,4 (just use two blades bruh)
 air_density = 1.2471  #  (kg/m^3), 1.2471 is for 10 degrees C (like in the morning when I usually fly)
 cf = 1  # some constant relating to the prop, just keep it at 1 ig
@@ -27,6 +27,13 @@ kilowatts = rpm**3 * diam**4 * pitch / (10.23**17) * cf * blades_const * 735.5/1
 amperage = kilowatts*1000/input_volts
 
 # OUTPUT
+print("INPUTS:")
+print("Motor kv (rpm/V):", motor_kv)
+print("Input voltage (V):", input_volts)
+print("Desired static thrust (newtons):", static_thrust)
+print("Desired cruising speed (mph):", cruising_speed)
+
+print("\nOUTPUTS:")
 print("Motor rpm:", rpm)
 print("Optimal diam (in):", raw_diam, "-->", diam)
 print("Optimal pitch:", raw_pitch, "-->", pitch)
